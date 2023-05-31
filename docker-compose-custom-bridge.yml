@@ -8,6 +8,8 @@ services:
     working_dir: /var/www/html
     volumes:
       - './src_php_8.2:/var/www/html'
+    networks:
+      - my-bridge-network
 
   php-8.1:
     image: php:8.1-apache
@@ -16,6 +18,8 @@ services:
     working_dir: /var/www/html
     volumes:
       - './src_php_8.1:/var/www/html'
+    networks:
+      - my-bridge-network
 
   php-7.4:
     image: php:7.4-apache
@@ -24,6 +28,8 @@ services:
     working_dir: /var/www/html
     volumes:
       - './src:/var/www/html'
+    networks:
+      - my-bridge-network
 
   php-5.6:
     image: php:5.6-apache
@@ -32,3 +38,10 @@ services:
     working_dir: /var/www/html
     volumes:
       - './src:/var/www/html'
+    networks:
+      - my-bridge-network
+
+networks:
+  my-bridge-network:
+    driver: bridge
+
