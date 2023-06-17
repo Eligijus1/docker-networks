@@ -1,0 +1,41 @@
+version: "3.1"
+
+services:
+  php82:
+    image: php:8.2-apache
+    ports:
+      - 80:80
+    working_dir: /var/www/html
+    volumes:
+      - './src_php_8.2:/var/www/html'
+    networks:
+      - my-bridge-network
+
+  php81:
+    image: php:8.1-apache
+    working_dir: /var/www/html
+    volumes:
+      - './src_php_8.1:/var/www/html'
+    networks:
+      - my-bridge-network
+
+  php74:
+    image: php:7.4-apache
+    working_dir: /var/www/html
+    volumes:
+      - './src:/var/www/html'
+    networks:
+      - my-bridge-network
+
+  php56:
+    image: php:5.6-apache
+    working_dir: /var/www/html
+    volumes:
+      - './src:/var/www/html'
+    networks:
+      - my-bridge-network
+
+networks:
+  my-bridge-network:
+    driver: bridge
+

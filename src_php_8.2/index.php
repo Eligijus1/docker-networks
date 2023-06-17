@@ -11,5 +11,11 @@ echo '<br><br><b>Current PHP version:</b> ' . phpversion();
 // Call external API (random cat facts via text message):
 echo '<br><br><b>Random cat fact (https://catfact.ninja/fact) API response:</b><br>' . file_get_contents("https://catfact.ninja/fact");
 
-// Call php-8.1 service:
-echo "<br><br><b>PHP 8.1 server (http://php81) response:</b><br>" . file_get_contents("http://php81");//
+// Call PHP 8.1 service:
+echo "<br><br><b>PHP 8.1 server (http://php81) response:</b><br>" . file_get_contents("http://php81");
+
+// Call PHP 7.4 service:
+echo "<br><br><b>PHP 7.4 server (http://php74) response:</b><br>" . file_get_contents("http://php74");
+
+// Call PHP 5.6 service:
+echo "<br><br><b>PHP 5.6 server (http://php56) response:</b><br>" . file_get_contents("http://php56");
