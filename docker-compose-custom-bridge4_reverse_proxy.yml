@@ -1,0 +1,50 @@
+version: "3.1"
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/backend-not-found.html:/var/www/html/backend-not-found.html
+      - ./nginx/includes:/etc/nginx/includes
+    networks:
+      - my-bridge-network
+ 
+  php82:
+    image: php:8.2-apache
+    working_dir: /var/www/html
+    volumes:
+      - './src_php_8.2:/var/www/html'
+    networks:
+      - my-bridge-network
+
+  php81:
+    image: php:8.1-apache
+    working_dir: /var/www/html
+    volumes:
+      - './src_php_8.1:/var/www/html'
+    networks:
+      - my-bridge-network
+
+  php74:
+    image: php:7.4-apache
+    working_dir: /var/www/html
+    volumes:
+      - './src_php_7.4:/var/www/html'
+    networks:
+      - my-bridge-network
+
+  php56:
+    image: php:5.6-apache
+    working_dir: /var/www/html
+    volumes:
+      - './src:/var/www/html'
+    networks:
+      - my-bridge-network
+
+networks:
+  my-bridge-network:
+    driver: bridge
+
